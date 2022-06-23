@@ -1,8 +1,19 @@
 package ib.demoSpring.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Guitariste implements Musicien{
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "nom")
     private String nom;
+
+    @OneToOne
+    @JoinColumn(name = "guitare_id")
     private Instrument instrument;
 
 
@@ -10,10 +21,18 @@ public class Guitariste implements Musicien{
     public Guitariste() {
     }
 
+
     public Guitariste(String nom, Instrument instrument) {
         this.nom = nom;
         this.instrument = instrument;
     }
+
+    public Guitariste(String nom, Instrument instrument, Long id) {
+        this.nom = nom;
+        this.instrument = instrument;
+        this.id = id;
+    }
+
 
     public String getNom() {
         return nom;
@@ -30,6 +49,16 @@ public class Guitariste implements Musicien{
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 
     @Override
     public void jouer() {
