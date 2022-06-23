@@ -1,10 +1,22 @@
 package ib.demoSpring.entity;
 
+import javax.persistence.*;
 
+@Entity
 public class Sonneur implements Musicien{
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name="nom")
     private String nom;
 
+    @OneToOne
+    @JoinColumn(name="cornemuse_id")
     private Instrument instrument;
+
+
 
     public String getNom() {
         return nom;
@@ -22,11 +34,25 @@ public class Sonneur implements Musicien{
         this.instrument = instrument;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Sonneur() {
     }
 
     public Sonneur(String nom) {
         this.setNom(nom);
+    }
+
+    public Sonneur(Long id, String nom, Instrument instrument) {
+        this.id = id;
+        this.nom = nom;
+        this.instrument = instrument;
     }
 
     public Sonneur(String nom, Instrument instrument) {

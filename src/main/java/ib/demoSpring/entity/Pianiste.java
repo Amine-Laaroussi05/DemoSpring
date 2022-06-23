@@ -1,8 +1,19 @@
 package ib.demoSpring.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Pianiste implements Musicien{
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name="nom")
     private String nom;
+
+    @OneToOne
+    @JoinColumn(name="piano_id")
     private Instrument instrument;
 
 
@@ -11,6 +22,12 @@ public class Pianiste implements Musicien{
     }
 
     public Pianiste(String nom, Instrument instrument) {
+        this.nom = nom;
+        this.instrument = instrument;
+    }
+
+    public Pianiste(Long id, String nom, Instrument instrument) {
+        this.id = id;
         this.nom = nom;
         this.instrument = instrument;
     }
@@ -29,6 +46,14 @@ public class Pianiste implements Musicien{
 
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
