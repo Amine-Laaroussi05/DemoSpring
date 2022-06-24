@@ -14,7 +14,7 @@ public class Guitariste implements Musicien{
 
     @OneToOne
     @JoinColumn(name = "guitare_id")
-    private Instrument instrument;
+    private Guitare instrument;
 
 
 
@@ -24,12 +24,12 @@ public class Guitariste implements Musicien{
 
     public Guitariste(String nom, Instrument instrument) {
         this.nom = nom;
-        this.instrument = instrument;
+        this.instrument = (Guitare) instrument;
     }
 
     public Guitariste(String nom, Instrument instrument, Long id) {
         this.nom = nom;
-        this.instrument = instrument;
+        this.instrument = (Guitare) instrument;
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class Guitariste implements Musicien{
     }
 
     public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
+        this.instrument = (Guitare) instrument;
     }
 
     public Long getId() {

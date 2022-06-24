@@ -14,7 +14,7 @@ public class Sonneur implements Musicien{
 
     @OneToOne
     @JoinColumn(name="cornemuse_id")
-    private Instrument instrument;
+    private Cornemuse instrument;
 
 
 
@@ -31,7 +31,7 @@ public class Sonneur implements Musicien{
     }
 
     public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
+        this.instrument = (Cornemuse) instrument;
     }
 
     public Long getId() {
@@ -52,7 +52,7 @@ public class Sonneur implements Musicien{
     public Sonneur(Long id, String nom, Instrument instrument) {
         this.id = id;
         this.nom = nom;
-        this.instrument = instrument;
+        this.instrument = (Cornemuse) instrument;
     }
 
     public Sonneur(String nom, Instrument instrument) {

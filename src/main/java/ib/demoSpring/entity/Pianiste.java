@@ -14,7 +14,7 @@ public class Pianiste implements Musicien{
 
     @OneToOne
     @JoinColumn(name="piano_id")
-    private Instrument instrument;
+    private Piano instrument;
 
 
 
@@ -23,13 +23,13 @@ public class Pianiste implements Musicien{
 
     public Pianiste(String nom, Instrument instrument) {
         this.nom = nom;
-        this.instrument = instrument;
+        this.instrument = (Piano) instrument;
     }
 
     public Pianiste(Long id, String nom, Instrument instrument) {
         this.id = id;
         this.nom = nom;
-        this.instrument = instrument;
+        this.instrument = (Piano) instrument;
     }
 
     public String getNom() {
@@ -45,7 +45,7 @@ public class Pianiste implements Musicien{
     }
 
     public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
+        this.instrument = (Piano) instrument;
     }
 
     public Long getId() {
