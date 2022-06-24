@@ -4,8 +4,12 @@ import ib.demoSpring.entity.Guitare;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface GuitareDAO extends JpaRepository<Guitare,Long> {
+
+    public List<Guitare> findByModel(String model);
 
     /**
      * public List<Guitare> findAll();

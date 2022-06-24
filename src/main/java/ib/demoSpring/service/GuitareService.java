@@ -38,8 +38,8 @@ public class GuitareService {
     }
 
 
-    public List<Guitare> findByModel(Sort model){
-        return this.guitareDAO.findAll(model);
+    public List<Guitare> findByModel(String model){
+        return this.guitareDAO.findByModel(model);
     }
 
     public Guitare create(Guitare guitare){

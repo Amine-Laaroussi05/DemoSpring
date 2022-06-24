@@ -32,14 +32,14 @@ public class GuitareController {
 
     @GetMapping("/model/{model}")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Guitare> findByModel(@PathVariable Sort model){
+    public List<Guitare> findByModel(@PathVariable String model){
         return this.guitareService.findByModel(model);
     }
 
     @PostMapping("")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Guitare create(@RequestBody Instrument guitare){
-        return this.guitareService.create((Guitare) guitare);
+    public Guitare create(@RequestBody Guitare guitare){
+        return this.guitareService.create(guitare);
     }
 
     @PostMapping("/{id}")
