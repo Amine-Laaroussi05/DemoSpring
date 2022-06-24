@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface SonneurDAO extends JpaRepository<Sonneur,Long> {
 
-    @Query("SELECT s FROM sonneur s WHERE s.nom = :nom")
+    @Query("SELECT s FROM Sonneur s WHERE s.nom = :nom")
     public List<Sonneur> findByNom(@Param("nom") String nom);
 //    Voir JPQL pour la syntax, par exemple : https://www.bezkoder.com/jpa-native-query/ & https://thorben-janssen.com/jpql/
 
